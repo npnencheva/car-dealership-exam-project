@@ -1,0 +1,49 @@
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #E8F1F6;
+}
+
+.container, .container-lg{
+    background-color:white;
+    
+}
+.title{
+    font-family:  'Roboto', sans-serif, bold;
+}
+
+.nav-item {
+    font-size: 1.25rem;
+    
+}
+.nav-icon{
+    font-size: 1.25rem;
+}
+
+.cars-container{
+    background-color:#E8F1F6;
+}
+.description{
+    font-weight: bold;
+}
+.headInfo{
+    font-weight: bold;
+}
+
+form .error {
+  color: #ff0000;
+}
+
+
+@media screen and (max-width: 767px) {
+    
+
+}
+
+
+/*
+font-family: 'Lato', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Roboto', sans-serif;
+
+*/

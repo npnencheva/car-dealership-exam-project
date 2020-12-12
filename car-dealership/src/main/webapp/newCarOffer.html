@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Patrick+Hand&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto&family=Ruda:wght@600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery-validation/dist/jquery.validate.min.js"></script>
+
+    <link href="styles/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="wrapper" hidden>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuContent"
+                aria-controls="menuContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="menuContent">
+                <ul class="navbar-nav mr-auto navigation ">
+                    <li class="nav-item p-2">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home nav-icon mx-2"></i>Начало</a>
+                    </li>
+                    <li class="nav-item active p-2">
+                        <a class="nav-link" href="newCarOffer.html"><i class="fas fa-plus mx-2"></i>Нова Оферта</a>
+                    </li>
+                    <li class="nav-item p-2 ">
+                        <a class="nav-link" href="myCarOffers.html"><i class="fas fa-car mx-2"></i></i>Моите оферти</a>
+                    </li>
+                    <li class="nav-item p-2 ">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user-cog nav-icon mx-2"></i>Профил</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="nav-link" href="#" id="logout"><i
+                                class="fas fa-sign-out-alt nav-icon mx-2"></i>Изход</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- End of navigation-->
+
+        <!-- Main Content -->
+        <div class="container-lg mt-lg-4 p-2 rounded">
+            <div class="d-flex justify-content-center text-align:center p-md-1 title border-bottom border-primary ">
+                <h2>
+                    Добавете нова оферта за автомобил
+                </h2>
+            </div>
+
+            <div class="p-5">
+                <form id="new-car-form" name="new-car">
+                    <div class="row mt-2">
+                        <div class="col-md-6 col-lg-4 w-100 p-lg-0 pb-4">
+                            <img src="assets/empty-image.jpg" id="carThumbnail"
+                                class="img-fluid img-responsive cardImage thumbnail w-100">
+                        </div>
+                        <div class="col-md-12 col-lg-8 d-flex flex-column">
+                            <div class="form-group">
+                                <label for="carImage">Линк към изображение</label>
+                                <input type="text" class="form-control" id="carImage" name="image" 
+                                    placeholder="Дайте връзка към изображение на автомобила"
+                                    formenctype="application/x-www-form-urlencoded" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start row pt-2 mt-3">
+                        <div class="col-md-12 col-lg-6 align-items-center flex-row">
+                            <div class="form-group">
+                                <label for="carBrand">Марка</label>
+                                <select class="form-control" id="carBrand" name="brand">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-group" id="modelFormGroup" hidden>
+                                <label for="carModel">Модел</label>
+                                <select class="form-control" id="carModel" name="model">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="carEngine">Двигател</label>
+                                <div class="">
+                                    <input type="text" class="form-control" name="engine" id="carEngine" placeholder="Двигател">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 d-flex align-items-center flex-row">
+                            <div class="form-group">
+                                <label for="carPrice">Цена</label>
+                                <div class="">
+                                    <input type="text" class="form-control" name="price" id="carPrice" placeholder="Цена">
+                                </div>
+                            </div>
+                            <div class="">
+                                <h6 class="m-2">лв.</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="form-group">
+                            <label for="shortDescription">Кратко описание</label>
+                            <textarea class="form-control" id="carShortDescription" rows="4" name="shortDescription" 
+                                placeholder="Кратко описание за: година на производство, двигател, километраж, скоростна котия, цвят и др. "></textarea>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end mt-2">
+                        <button type="button" id="dismiss"
+                            class="btn btn btn-secondary pull-right mybutton mr-3"><i class="fas fa-times mr-2"></i>Отказ</button>
+                        <button type="submit" id="saveCar" class="btn btn-success pull-right mybutton"><span
+                                class="fas fa-save mr-2"></span>Публикувай</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+
+             /*Logged user*/
+            var getLoggedUser = async function () {
+                return $.ajax({
+                    url: "/loggedUser",
+                    method: "GET",
+                    complete: function (data) {
+                        switch (data.status) {
+                            case 200:
+                                return data.responseJSON;
+                            case 401:
+                                window.location.href = "index.html";
+                                break;
+                        }
+                    }, fail: function () {
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+
+            var loadPageContent = function (loggedUser) {
+                if (loggedUser != 'undefined') {
+                    $('.wrapper').removeAttr('hidden');
+                }
+            }
+
+            var loadData = async function () {
+                let loggedUser = await getLoggedUser();
+
+                loadPageContent(loggedUser);
+            }
+
+            /*Logged user*/
+
+            /*Display Brands*/
+            var getBrands = async function () {
+                return $.ajax({
+                    url: "/carBrands/all",
+                    method: "GET",
+                    complete: function (data) {
+                        return data.responseJSON;
+
+                    }, fail: function () {
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+
+            var loadBrandsSelection = function( dropdown, element){
+                dropdown.append($('<option></option>').attr('value', element.id).text(element.brand));
+            } 
+
+            var loadBrandsData = async function () {
+                let carBrands = await getBrands();
+
+                let dropdown = $('#carBrand');
+                dropdown.empty();
+                dropdown.append('<option selected="true" disabled>Изберете марка автомобил</option>');
+                dropdown.prop('selectedIndex', 0);
+                carBrands.forEach(element => {
+                    loadBrandsSelection(dropdown, element);
+                });
+            }
+            /*Display Brands*/
+            /*Display Models*/
+            var getModels = async function () {
+                return $.ajax({
+                    url: "/carModels/brand",
+                    method: "GET",
+                    data: {
+                        carBrand: $('#carBrand :selected').val()
+                    },
+                    complete: function (data) {
+                        return data.responseJSON;
+
+                    }, fail: function () {
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+            var loadModelsSelection = function (dropdown, element) {
+                dropdown.append($('<option></option>').attr('value', element.id).text(element.model));
+            }
+
+            var loadModelsData = async function () {
+                let carModels = await getModels();
+               
+                let selectModel = $('#carModel');
+                selectModel.empty();
+                selectModel.append('<option selected="true" disabled>Изберете модел автомобил</option>');
+                selectModel.prop('selectedIndex', 0);
+                carModels.forEach(element => {
+                    loadModelsSelection(selectModel, element);
+                });  
+                $('#modelFormGroup').removeAttr('hidden');
+            }
+            $('#carBrand').on('change', async function () {
+                loadModelsData();
+            });
+            /*Display Models*/
+            $('#logout').on('click', function () {
+                $.ajax({
+                    url: "logout",
+                    method: "POST",
+                    complete: function (data) {
+                        if (data.status == 401) {
+                            alert("ERROR!");
+                        }
+                        window.location.href = "index.html";
+                    }
+                })
+            });
+            $('#dismiss').on('click', function () {
+                
+                window.location.href = "home.html";
+                
+            });
+            /*Display CarImage*/
+            $('#carImage').change(function () {
+                $('#carThumbnail').attr('src',  $('#carImage').val());
+            });
+            /*Validate form data and send request*/
+            $("form[name='new-car']").validate({
+                rules: {
+                    image: "required",
+                    brand: "required",
+                    model: "required",
+                    price: {
+                        required: true,
+                        maxlength: 8,
+                        digits: true
+                    },
+                    engine: {
+                        required: true,
+                        maxlength: 30
+                    },
+                    shortDescription: {
+                        required: true,
+                        maxlength: 255
+                    }
+                },
+                messages: {
+                    image: "Трябва да дадете URL адрес към изображение.",
+                    brand: "Изберете марка автомобил",
+                    model: "Изберете модел автомобил",
+                    price: {
+                        required: "Въведете цена",
+                        maxlength: "Цената може да съдържа до 8 символа",
+                        digits: "Цената може да съдържа само цифри"
+                    },
+                    engine: {
+                        required: "Въведете двигател",
+                        maxlength: "Типа двигател може да съдържа до 30 символа"
+                    },
+                    shortDescription: {
+                        required: "Въведете кратко описание",
+                        maxlength: "Описанието може да съдържа до 255 символа"
+                    }
+                },
+                submitHandler: function (form) {
+                    event.preventDefault();
+
+                    $.ajax({
+                    url: '/carOffer/add',
+                    method: "POST",
+                    data: {
+                        image: $('#carImage').val(),
+                        brand: $('#carBrand').val(),
+                        model: $('#carModel').val(),
+                        price: $('#carPrice').val(),
+                        engine: $('#carEngine').val(),
+                        shortDescription: $('#carShortDescription').val()
+                    },
+                    complete: function (data) {
+                        switch (data.status) {
+                            case 200:
+                                window.location.href = "myCarOffers.html";
+                                break;
+                            case 400:
+                                alert("Въведените данни са невалидни!");
+                                break;
+                            case 401:
+                                window.location.href = "index.html";
+                                break;
+                        }
+
+                    }, fail: function () {
+                        alert("Въведените данни са невалидни!");
+                    }
+                });
+                }
+            }); 
+
+            loadData();
+            loadBrandsData();
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
